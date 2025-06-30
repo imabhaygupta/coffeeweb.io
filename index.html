@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coffee | Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #3d1f1f;
+            color: #fff;
+            transition: opacity 1s ease-in-out;
+        }
+
+        header {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 5%;
+            top: 0;
+            z-index: 1000;
+            background-color: #3d1f1f;
+            color: #fff;
+            position: sticky;
+        }
+
+        .logo {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+
+        .logo img {
+            width: 35px;
+            height: 35px;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .logo {
+                justify-content: center;
+                width: 100%;
+            }
+
+            nav {
+                justify-content: center;
+                margin-top: 10px;
+            }
+        }
+
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #ffcc70;
+        }
+
+        .hero {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 60px 10%;
+            text-align: left;
+            flex-direction: row;
+            gap: 40px;
+        }
+
+        .hero-text {
+            flex: 1;
+            max-width: 600px;
+        }
+
+        .hero-img {
+            flex: 1;
+            max-width: 500px;
+            text-align: right;
+        }
+
+        .hero-img img {
+            width: 100%;
+            object-fit: contain;
+        }
+
+        .hero-text h4 {
+            font-size: 1.5rem;
+            color: #ff9f29;
+            margin-bottom: 10px;
+        }
+
+        .hero-text h4 {
+            font-family: 'Pacifico', cursive;
+            color: #ff9f29;
+            font-size: 1.5rem;
+        }
+
+
+        .hero-text h1 {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+        }
+
+        .hero-text p {
+            color: #d0c7c7;
+            margin-bottom: 25px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+        }
+
+        @media (max-width: 768px) {
+            .buttons {
+                justify-content: center;
+            }
+        }
+
+
+        .buttons button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+
+        .hero .hero-text .buttons button:nth-child(2) {
+            background-color: transparent;
+            border: 1px solid #fff;
+            color: #eee;
+        }
+
+        .hero .hero-text .buttons button:nth-child(2):hover {
+            background-color: #eee;
+            color: black;
+        }
+
+        .order-btn {
+            background-color: #ff9f29;
+            color: #fff;
+        }
+
+        .order-btn:hover {
+            background-color: #e38b10;
+        }
+
+        .contact-btn {
+            background-color: transparent;
+            border: 2px solid #fff;
+            color: #fff;
+        }
+
+        .contact-btn:hover {
+            background-color: #fff;
+            color: #3d1f1f;
+        }
+
+        section {
+            padding: 60px 5%;
+        }
+
+        #about {
+            background-color: #f8f4f4;
+            color: #3d1f1f;
+            text-align: center;
+        }
+
+        /* .about-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+        } */
+
+        /* .about-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content:space-evenly;
+            align-items: center;
+            gap: 40px;
+            padding: 20px 0;
+        } */
+
+        .about-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            column-gap: 20px;
+            /* Reduced from 40px */
+            row-gap: 30px;
+            /* Optional: keeps vertical space on smaller screens */
+            padding: 20px 0;
+        }
+
+
+
+        /* .about-image img {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            object-fit: cover;
+        } */
+
+        .about-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .about-image img {
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 6px solid #f8f4f4;
+            background-color: #f8f4f4;
+        }
+
+
+
+        /* .about-text {
+            max-width: 500px;
+        } */
+
+        .about-text {
+            max-width: 500px;
+            /* Slightly narrower */
+        }
+
+
+        .about-text h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .about-text h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: #ff9f29;
+            margin: 10px auto;
+        }
+
+        .social-icons i {
+            font-size: 1.5rem;
+            margin: 0 10px;
+            color: #3d1f1f;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .social-icons i:hover {
+            color: #ff9f29;
+        }
+
+        #menu {
+            background-color: #222;
+            color: #fff;
+            text-align: center;
+        }
+
+        .menu-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .menu-card img {
+            width: 100%;
+            /* max-height: 200px; */
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        #gallery img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 30px;
+        }
+
+        #contact form input,
+        #contact form textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+
+        #contact form button {
+            padding: 10px 20px;
+            background: #3f0d0c;
+            color: #fff;
+            border: none;
+            border-radius: 25px;
+            font-weight: 600;
+        }
+
+        footer {
+            background: #222;
+            color: #fff;
+            text-align: center;
+            padding: 20px 5%;
+        }
+
+        .footer {
+            background: #222;
+            color: #fff;
+            padding: 20px 10%;
+        }
+
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            text-align: center;
+            gap: 15px;
+        }
+
+        .footer-left,
+        .footer-center,
+        .footer-right {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .footer-center a {
+            margin: 0 10px;
+            color: #fff;
+            font-size: 20px;
+            text-decoration: none;
+        }
+
+        .footer-right a {
+            color: #ccc;
+            text-decoration: none;
+            margin: 0 5px;
+        }
+
+        .footer-right a:hover {
+            color: #ff9f29;
+        }
+
+        @media (max-width: 768px) {
+            .footer-container {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .footer-left,
+            .footer-center,
+            .footer-right {
+                text-align: center;
+            }
+        }
+
+
+        @media (max-width: 480px) {
+            .hero-text h1 {
+                font-size: 1.8rem;
+            }
+
+            .about-image img {
+                width: 180px;
+                height: 180px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding: 40px 5%;
+            }
+
+            .hero-text {
+                text-align: center;
+            }
+
+            .hero-img {
+                max-width: 300px;
+                text-align: center;
+                margin-top: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding: 40px 5%;
+            }
+
+            .hero-text {
+                text-align: center;
+            }
+
+            .hero-img {
+                max-width: 300px;
+                text-align: center;
+                margin-top: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body style="opacity:0;">
+    <header>
+        <div class="logo">
+            <img src="himg.png" alt="coffee logo">
+            Coffee
+        </div>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#menu">Menu</a>
+            <a href="#testimonials">Testimonials</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-text">
+            <h4>Best Coffee</h4>
+            <h1>Start Your Morning Right with Our Signature Blends!</h1>
+            <p>Welcome to our happy place - good vibes, great coffee, and even better stories in every cup.</p>
+            <div class="buttons">
+                <button class="order-btn">Order Now</button>
+                <button class="contact-btn">Contact Us</button>
+            </div>
+        </div>
+        <div class="hero-img">
+            <img src="img1.png" alt="coffee image">
+        </div>
+    </section>
+
+
+    <!-- About Section -->
+    <section id="about" style="background-color:#f8f4f4;" data-aos="fade-up">
+        <div class="about-container">
+            <div class="about-image">
+                <img src="img2 (2).png" alt="about us image">
+            </div>
+            <div class="about-text">
+                <h2>ABOUT US</h2>
+                <p> Welcome to Coffee House — Your favorite place to chill in Saharsa. Started by an engineering student
+                    who
+                    runs on caffeine (just like you). Whether you're dodging classes, cramming last-minute, or just
+                    tired of hostel food — we’ve got good coffee, chill vibes, and zero judgment. Pull up, sip up, and
+                    vibe with us.
+                </p>
+                <br>
+                <div class="social-icons">
+                    <i class="fab fa-facebook"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-x-twitter"></i>
+                    <i class="fa-brands fa-linkedin"></i>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" style="background-color:#222; color: #fff;" data-aos="fade-up">
+        <h2 class="menu-title">OUR MENU</h2>
+        <br>
+        <div style="width:50px; height:4px; background:#ff9f29; margin:0 auto 40px auto;"></div>
+        <div class="menu-items">
+            <div class="menu-card">
+                <img src="img5.png" alt="Hot Beverages">
+                <h3>Hot Beverages</h3>
+                <p>Wide range of steaming hot coffee to make you fresh and light.</p>
+            </div>
+            <div class="menu-card">
+                <img src="img3.png" alt="Cold Beverages">
+                <h3>Cold Beverages</h3>
+                <p>Creamy and frothy cold coffee to make you cool.</p>
+            </div>
+            <div class="menu-card">
+                <img src="img7.png" alt="Refreshment">
+                <h3>Dessert</h3>
+                <p>Satiate your plate and take you on a culinary treat.</p>
+            </div>
+            <div class="menu-card">
+                <img src="img6.png" alt="Burger & French Fries">
+                <h3>Burger & French Fries</h3>
+                <p>Quick bites to satisfy your small size hunger.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials"
+        style="background-color:#f8f4f4; color:#000; text-align:center; padding:60px 10%; position:relative;"
+        data-aos="fade-up">
+        <h2 style="font-size:2rem; font-weight:700; margin-bottom:40px;">TESTIMONIALS</h2>
+        <div style="width:50px; height:4px; background:#ff9f29; margin:0 auto 40px auto;"></div>
+        <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:40px; align-items:center;">
+            <div style="max-width:250px;">
+                <img src="abhay.jpg" style="width:140px; height:140px; border-radius:50%; object-fit:cover;"
+                    alt="Abhay Gupta">
+                <h3 style="margin-top:15px; font-size:1.1rem; font-weight:600;">Abhay Gupta</h3>
+                <p style="font-style:italic; font-size:0.95rem; color:#444;">"Totally loved the French roast — super smooth and rich. Definitely getting it again!"</p>
+            </div>
+            <div style="max-width:250px;">
+                <img src="vikash.jpg" style="width:140px; height:140px; border-radius:50%; object-fit:cover;"
+                    alt="Vikash Chaurasiya">
+                <h3 style="margin-top:15px; font-size:1.1rem; font-weight:600;">Vikash Chaurasiya</h3>
+                <p style="font-style:italic; font-size:0.95rem; color:#444;">"Great coffee, chill vibes, and friendly
+                    staff. Perfect spot to relax — will definitely visit again"</p>
+            </div>
+            <div style="max-width:250px;">
+                <img src="abhishek.jpg" style="width:140px; height:140px; border-radius:50%; object-fit:cover;"
+                    alt="Abhishek Yadav">
+                <h3 style="margin-top:15px; font-size:1.1rem; font-weight:600;">Abhishek Yadav</h3>
+                <p style="font-style:italic; font-size:0.95rem; color:#444;">"Awesome place! Loved the coffee and the whole vibe. A must-visit if you’re around!"</p>
+            </div>
+        </div>
+        <button
+            style="position:absolute; left:20px; top:50%; transform:translateY(-50%); background:none; border:none; font-size:2rem; color:#ff9f29; cursor:pointer;">
+            &#10094;
+        </button>
+        <button
+            style="position:absolute; right:20px; top:50%; transform:translateY(-50%); background:none; border:none; font-size:2rem; color:#ff9f29; cursor:pointer;">
+            &#10095;
+        </button>
+        <div style="margin-top:30px;">
+            <span
+                style="display:inline-block; width:10px; height:10px; background:#ff9f29; border-radius:50%; margin:0 5px;"></span>
+            <span
+                style="display:inline-block; width:10px; height:10px; background:#ccc; border-radius:50%; margin:0 5px;"></span>
+            <span
+                style="display:inline-block; width:10px; height:10px; background:#ccc; border-radius:50%; margin:0 5px;"></span>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery"
+        style="background-color:#fff; color:#000; text-align:center; padding:60px 10%; position:relative;"
+        data-aos="fade-up">
+        <h2 style="font-size:2rem; font-weight:700; margin-bottom:40px;">GALLERY</h2>
+        <div style="width:50px; height:4px; background:#ff9f29; margin:0 auto 40px auto;"></div>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(250px, 1fr)); gap:20px;">
+            <img src="img9 (2).jpg" style="width:100%; border-radius:10px; object-fit:cover;">
+            <img src="img10.jpg" style="width:100%; border-radius:10px; object-fit:cover;">
+            <img src="img11.jpg" style="width:100%; border-radius:10px; object-fit:cover;">
+            <img src="img12.jpg" style="width:100%; border-radius:10px; object-fit:cover;">
+            <img src="img13.jpg" style="width:100%; border-radius:10px; object-fit:cover;">
+            <img src="img14.jpg" style="width:100%; border-radius:10px; object-fit:cover;">
+            <img src="img15.jpg" style="width:100%; border-radius:10px; object-fit:cover;">
+            <img src="img16.jpg" style="width:100%; border-radius:10px; object-fit:cover;">
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" style="padding:60px 10%; background:#f8f4f4; color:#000;" data-aos="fade-up">
+        <h2 style="text-align:center; font-size:2rem; font-weight:700; margin-bottom:40px;">CONTACT US</h2>
+        <div style="width:50px; height:4px; background:#ff9f29; margin:0 auto 40px auto;"></div>
+        <div style="display:flex; flex-wrap:wrap; justify-content:space-between; gap:40px;">
+            <div style="flex:1; min-width:280px;">
+                <p><i class="fa-solid fa-location-crosshairs"></i> VJM5+2J2, Aadarsh Nagar, Saharsa, Bihar 852201</p>
+                <p><i class="fa-solid fa-envelope"></i> hello@abhaycoffeeshop.com</p>
+                <p><i class="fa-solid fa-phone"></i> +91 8969023340</p>
+                <p><i class="fa-solid fa-clock"></i> Monday - Friday: 9:00 AM – 5:00 PM</p>
+                <p><i class="fa-solid fa-clock"></i> Saturday: 10:00 AM – 3:00 PM</p>
+                <p><i class="fa-solid fa-clock"></i> Sunday: Closed</p>
+                <p><i class="fa-solid fa-globe"></i> www.theabhaybrew.com </p>
+            </div>
+            <form style="flex:1; min-width:280px; display:flex; flex-direction:column; gap:15px;">
+                <input type="text" placeholder="Your name"
+                    style="padding:10px; border-radius:6px; border:1px solid #ccc;">
+                <input type="email" placeholder="Your email"
+                    style="padding:10px; border-radius:6px; border:1px solid #ccc;">
+                <textarea placeholder="Your message" rows="4"
+                    style="padding:10px; border-radius:6px; border:1px solid #ccc;"></textarea>
+                <button type="submit"
+                    style="padding:10px 20px; background:#3f0d0c; color:#fff; border:none; border-radius:25px; font-weight:600;">Submit</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-left">
+                <p>© 2025 Abhay Coffee Shop</p>
+            </div>
+            <div class="footer-center">
+                <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+            </div>
+            <div class="footer-right">
+                <a href="#">Privacy policy</a> • <a href="#">Refund policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+    <body style="opacity:0; transition: opacity 1s ease-in-out;">
+        <script>
+            window.addEventListener("load", function () {
+                document.body.style.opacity = "1";
+            });
+
+            AOS.init();
+
+            // Smooth scroll
+            document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        window.scrollTo({
+                            top: target.offsetTop - 60,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        </script>
+    </body>
+
+</html>
